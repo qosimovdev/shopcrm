@@ -1,0 +1,140 @@
+.new-arrivals-section {
+  padding: 80px 5%;
+}
+
+.arrivals-swiper {
+  padding-bottom: 50px !important;
+}
+
+.arrival-card {
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--card-bg, #111);
+  border: 1px solid var(--glass-border);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.arrival-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.arrival-img-wrap {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  background: #181818;
+}
+
+.arrival-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.arrival-card:hover .arrival-img-wrap img {
+  transform: scale(1.08);
+}
+
+.arrival-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: #00f0ff;
+  color: #000;
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 20px;
+  letter-spacing: 1px;
+}
+
+.arrival-heart {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0,0,0,0.5);
+  border: none;
+  color: #fff;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.arrival-heart.liked { color: #ff0055; }
+.arrival-heart:hover { background: rgba(255,255,255,0.15); }
+
+.arrival-info {
+  padding: 16px;
+}
+
+.arrival-brand {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.arrival-info h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 6px 0 8px;
+}
+
+.arrival-stars {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin-bottom: 12px;
+}
+
+.arrival-stars span {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-left: 4px;
+}
+
+.arrival-price-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.arrival-price {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #00f0ff;
+}
+
+.arrival-old {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-decoration: line-through;
+  flex: 1;
+}
+
+.arrival-add {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: #fff;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+.arrival-add:hover {
+  background: #00f0ff;
+  color: #000;
+  border-color: #00f0ff;
+}
