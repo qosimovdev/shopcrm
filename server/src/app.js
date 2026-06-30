@@ -12,9 +12,9 @@ app.use("/api/auth", require("./routes/admin.routes"))
 app.use("/api/manager", require("./routes/manager.routes"))
 app.use("/api/product", require("./routes/product.routes"))
 app.use("/api/category", require("./routes/category.routes"))
-app.use("/api/likes", require("./routes/like.route"))
+app.use("/api/like", require("./routes/like.route"))
 app.use("/api/cart", require("./routes/cart.routes"))
-app.use("/api/orders", require("./routes/order.routes"))
+app.use("/api/order", require("./routes/order.routes"))
 app.use("/api/user", require("./routes/user.routes"))
 
 console.log("🤖 Telegram bot running...");
