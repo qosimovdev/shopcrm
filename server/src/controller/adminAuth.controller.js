@@ -47,23 +47,24 @@ exports.login = async (req, res) => {
     }
 };
 
-exports.auth = (req, res, next) => {
+exports.getMe = async (req, res) => {
     try {
-        const token = req.headers.authorization?.split(" ")[1];
-        if (!token) {
-            return res.status(401).json({
-                message: "Unauthorized",
+        const admin = await Admin.findByPk(req.admin.id, {
+            attributes: {
+                exclude: ["password"],
+            },
+        });
+        if (!admin) {
+            return res.status(404).json({
+                message: "Admin not found",
             });
         }
-        const decoded = jwt.verify(
-            token,
-            process.env.JWT_SECRET
-        );
-        req.user = decoded;
-        next();
+        res.status(200).json({
+            admin,
+        });
     } catch (error) {
-        res.status(401).json({
-            message: "Invalid token",
+        res.status(500).json({
+            message: error.message,
         });
     }
 };

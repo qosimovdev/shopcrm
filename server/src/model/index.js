@@ -12,7 +12,8 @@ db.Product = require("./product.model")(sequelize, Sequelize.DataTypes);
 db.User = require("./user.model")(sequelize, Sequelize.DataTypes);
 db.LikesHistory = require("./likesHistory.model")(sequelize, Sequelize.DataTypes);
 db.CartHistory = require("./cartHistory.model")(sequelize, Sequelize.DataTypes);
-db.OrderHistory = require("./orderHistory.model")(sequelize, Sequelize.DataTypes);
+db.OrderItem = require("./orderItem.model")(sequelize, Sequelize.DataTypes);
+db.Order = require("./order.model")(sequelize, Sequelize.DataTypes)
 
 // Category ↔ Product
 db.Category.hasMany(db.Product, {
@@ -61,22 +62,33 @@ db.CartHistory.belongsTo(db.Product, {
     foreignKey: "productId",
 });
 
-// User ↔ OrderHistory
-db.User.hasMany(db.OrderHistory, {
+// Order ↔ OrderItem
+db.Order.hasMany(db.OrderItem, {
+    foreignKey: "orderId",
+    as: "items",
+});
+
+db.OrderItem.belongsTo(db.Order, {
+    foreignKey: "orderId",
+    as: "order",
+});
+
+db.User.hasMany(db.Order, {
     foreignKey: "userId",
-    as: "orderHistory",
+    as: "orders",
 });
 
-db.OrderHistory.belongsTo(db.User, {
+db.Order.belongsTo(db.User, {
     foreignKey: "userId",
+    as: "user",
 });
-
-db.Product.hasMany(db.OrderHistory, {
+db.Product.hasMany(db.OrderItem, {
     foreignKey: "productId",
+    as: "orderItems",
 });
 
-db.OrderHistory.belongsTo(db.Product, {
+db.OrderItem.belongsTo(db.Product, {
     foreignKey: "productId",
+    as: "product",
 });
-
 module.exports = db;

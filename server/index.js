@@ -10,9 +10,7 @@ const startServer = async () => {
     try {
         await sequelize.sync();
         console.log("Db ulandi");
-
-        await createSuperAdmin();
-
+        // await createSuperAdmin();
         app.listen(PORT, () => {
             console.log(`Server shu portda ishladi: ${PORT}`);
         });

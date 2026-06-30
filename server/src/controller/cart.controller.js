@@ -34,6 +34,8 @@ exports.addToCart = async (req, res) => {
             productId,
             quantity,
         });
+        console.log("CART ITEM:", existingCart);
+        console.log("NEW CART:", cart);
         res.status(201).json({
             message: "Added to cart",
             cart,
